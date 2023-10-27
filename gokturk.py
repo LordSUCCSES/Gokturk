@@ -46,8 +46,6 @@ def open():
     label = tk.Label(text="GÖKTÜRK HACK TEAM\n\nVersion: 1.0.0.0")
     label.pack()
     button = tk.Button(text="LordSUCCSES Github", command=github)
-    button.bind("<Enter>", lambda event: button.configure(bg="green", relief="sunken"))
-    button.bind("<Leave>", lambda event: button.configure(bg="blue", relief="raised"))
     button.pack(side="bottom")
     window.mainloop()
 
