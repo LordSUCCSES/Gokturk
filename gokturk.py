@@ -20,6 +20,8 @@ def scan_port():
             server.settimeout(0.2)
             server.connect((ip, port))
             print(f"Port Finding {port}\nGÖKTÜRK HACK TEAM")
+            server.close()
+            break
         except socket.error as e:
             print(f"Port Not Finding: {port}")
 
