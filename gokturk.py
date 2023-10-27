@@ -69,7 +69,11 @@ def myport():
         except socket.error:
             pass
 
-print("1: Find Web IP\n2: Scan Web Port\n3: Web Server Send To Data\n4: My IP\n5: My Find Port\n6: Who Are We")
+def pcname():
+    name = socket.gethostname()
+    print(f"Your Computer Name: {name}")
+
+print("1: Find Web IP\n2: Scan Web Port\n3: Web Server Send To Data\n4: My IP\n5: My Find Port\n6: My Computer Name\n7: Who Are We")
 
 i = int(input("Enter Command: "))
 
@@ -84,6 +88,8 @@ elif i == 4:
 elif i == 5:
     myport()
 elif i == 6:
+    pcname()
+elif i == 7:
     open()
 else:
     print("Enter a Valid Number")
