@@ -69,11 +69,24 @@ def myport():
         except socket.error:
             pass
 
+def customscan():
+    ip = input("Enter Custom IP: ")
+    for port in range(1000):
+        try:
+            server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            server.settimeout(0.1)
+            server.connect((ip, port))
+            print(f"Port Finding, Port: {port}")
+            break
+        except socket.error:
+            print(f"Port Not Finding: {port}")
+
+
 def pcname():
     name = socket.gethostname()
     print(f"Your Computer Name: {name}")
 
-print("1: Find Web IP\n2: Scan Web Port\n3: Web Server Send To Data\n4: My IP\n5: My Find Port\n6: My Computer Name\n7: Who Are We")
+print("1: Find Web IP\n2: Scan Web Port\n3: Web Server Send To Data\n4: My IP\n5: My Find Port\n6: My Computer Name\n7: Custom Port Scan\n8: Who Are We")
 
 i = int(input("Enter Command: "))
 
@@ -90,6 +103,8 @@ elif i == 5:
 elif i == 6:
     pcname()
 elif i == 7:
+    pass
+elif i == 8:
     open()
 else:
     print("Enter a Valid Number")
