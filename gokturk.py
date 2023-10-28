@@ -103,7 +103,7 @@ elif i == 5:
 elif i == 6:
     pcname()
 elif i == 7:
-    pass
+    customscan()
 elif i == 8:
     open()
 else:
