@@ -2,6 +2,14 @@ import socket
 from time import sleep
 import tkinter as tk
 import webbrowser
+import requests
+from bs4 import BeautifulSoup
+
+class Color:
+    RED = "\033[0;31m"
+    BOLD = "\033[1m"
+    YELLOW = "\033[1;33m"
+    CYAN = "\033[0;36m"
 
 def github():
     webbrowser.open("https://github.com/LordSUCCSES")
@@ -86,7 +94,29 @@ def pcname():
     name = socket.gethostname()
     print(f"Your Computer Name: {name}")
 
-print("1: Find Web IP\n2: Scan Web Port\n3: Web Server Send To Data\n4: My IP\n5: My Find Port\n6: My Computer Name\n7: Custom Port Scan\n8: Who Are We")
+def adminfind():
+    found = []
+    url = input("Enter Url (Exaple: https//exaple.com): ")
+    req = ["/admin/", "/adminpp/", "/adminpanel/", "/administor/", "/admins/", "/registration/admin.php", "/feedback/alumini/admin.php"]
+    leng = len(req)
+    for i in range(leng):
+        admin = url + req[i]
+        print(admin)
+        res = requests.get(admin)
+        if res.status_code == 200:
+            soup = BeautifulSoup(res.text, 'html.parser')
+            title = soup.find('h1')
+            if title:
+                print(f"Finding Title: {title.text}")
+                found.append(admin)
+        else:
+            print("Connection Not Found...")
+    fleng = len(found)
+    if fleng > 0:
+        print(Color.CYAN + "Found Admin Panel\n")
+        print(Color.CYAN + str(found))
+
+print("1: Find Web IP\n2: Scan Web Port\n3: Web Server Send To Data\n4: My IP\n5: My Find Port\n6: My Computer Name\n7: Custom Port Scan\n8: Admin Page Finding\n9: Who Are We")
 
 i = int(input("Enter Command: "))
 
@@ -105,6 +135,8 @@ elif i == 6:
 elif i == 7:
     customscan()
 elif i == 8:
+    adminfind()
+elif i == 9:
     open()
 else:
     print("Enter a Valid Number")
