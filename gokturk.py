@@ -115,6 +115,8 @@ def adminfind():
     if fleng > 0:
         print(Color.CYAN + "Found Admin Panel\n")
         print(Color.CYAN + str(found))
+    else:
+        print(Color.RED + "Admin Panel Not Found")
 
 print("1: Find Web IP\n2: Scan Web Port\n3: Web Server Send To Data\n4: My IP\n5: My Find Port\n6: My Computer Name\n7: Custom Port Scan\n8: Admin Page Finding\n9: Who Are We")
 
