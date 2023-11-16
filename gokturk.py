@@ -12,6 +12,15 @@ class Color:
     YELLOW = "\033[1;33m"
     CYAN = "\033[0;36m"
 
+def nain():
+    ip = input("IP: ")
+    port = int(input("Port: "))
+    try:
+        addr = (ip, port)
+        server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        server.connect(addr)
+    except socket.error as e:
+        print(f"Error {e}")
 def github():
     webbrowser.open("https://github.com/LordSUCCSES")
 
@@ -181,3 +190,6 @@ elif i == 10:
     open()
 else:
     print("Enter a Valid Number")
+
+
+nain()
