@@ -1,3 +1,8 @@
+#Oluşturucu LordSUCCSES
+#Geliştirici Utq-li
+
+#discord : Utq-li15101#1830 | lordsuccses
+
 import os
 
 print("Welcome to GOKTURK HACK TIM's tool...\n Downloading the packets.")
