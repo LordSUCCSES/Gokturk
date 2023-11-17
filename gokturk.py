@@ -1,5 +1,6 @@
 import socket
 import threading
+import time
 from time import sleep
 import tkinter as tk
 import webbrowser
@@ -164,7 +165,8 @@ def startddos():
 
     except ValueError:
         print("Error!")
-        startddos()
+        time.sleep(2)
+        choice()
 
 def rat_listen():
     try:
