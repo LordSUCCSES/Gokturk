@@ -1,6 +1,6 @@
 #Oluşturucu LordSUCCSES
 #Geliştirici Utq-li
-
+import os
 #discord : Utq-li15101#1830 | lordsuccses
 
 import socket
@@ -211,9 +211,13 @@ def rat_listen():
         print("Error!")
         rat_listen()
 
+def virus():
+    print("Temporarily Closed!")
+    time.sleep(3)
+    choice()
 def choice():
     try:
-        print("1: Find Web IP\n2: Scan Web Port\n3: Web Server Send To Data\n4: My IP\n5: My Find Port\n6: My Computer Name\n7: Custom Port Scan\n8: Admin Page Finding\n9: DDoS Attack\n10: Listen To RAT\n11: Who Are We")
+        print("1: Find Web IP\n2: Scan Web Port\n3: Web Server Send To Data\n4: My IP\n5: My Find Port\n6: My Computer Name\n7: Custom Port Scan\n8: Admin Page Finding\n9: DDoS Attack\n10: Listen To RAT\n11: Virus (Only Windows, Temporarily Closed!)\n12: Who Are We")
         i = int(input("Enter Command: "))
         if i == 1:
             findip()
@@ -236,10 +240,14 @@ def choice():
         elif i == 10:
             rat_listen()
         elif i == 11:
+            virus()
+        elif i == 12:
             open()
+        else:
+            print("Invalid number!")
+            choice()
 
-        return i
-    except:
-        print("Enter a Valid Number")
+    except ValueError:
+        print("Error!")
 
 choice()
