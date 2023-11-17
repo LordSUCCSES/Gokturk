@@ -6,3 +6,7 @@
 apt install git
 
 git clone https://github.com/LordSUCCSES/Gokturk.git
+
+python3 download.py
+
+python3 gokturk.py
