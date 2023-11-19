@@ -36,18 +36,21 @@ while True:
 
 print(f"Succsesfully created {istek}.py!")
 
-try:
-    exe = input("Convert to exe? yes/no")
-    if exe == "yes":
-        os.system(f"pyinstaller --onefile -w {istek}.py")
-    elif exe == "no":
-        print("Okey goodbye...")
-    else:
-        print("Invalid option!")
-except ValueError:
-    print("Error!")
-except FileNotFoundError:
-    print("File not found!")
-except requests.exceptions.RequestException as e:
-    print(f'Hata oluştu: {e}')
-    print("İnternet bağlantısı sorunu. Lütfen bağlantınızı kontrol edin.")
+def exe():
+    try:
+        exe = input("Convert to exe? yes/no")
+        if exe == "yes":
+            os.system(f"pyinstaller --onefile -w {istek}.py")
+        elif exe == "no":
+            print("Okey goodbye...")
+            exit()
+        else:
+            print("Invalid option!")
+            exe()
+    except ValueError:
+        print("Error!")
+    except FileNotFoundError:
+        print("File not found!")
+    except requests.exceptions.RequestException as e:
+        print(f'Hata oluştu: {e}')
+        print("İnternet bağlantısı sorunu. Lütfen bağlantınızı kontrol edin.")
