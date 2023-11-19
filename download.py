@@ -22,7 +22,11 @@ os.system("apt install tkinter")
 os.system("apt install colorama")
 
 print("All installed successfully!")
-print("Now you will open gokturk.py")
+time.sleep(2)
+os.system("clear")
+print("Opening gokturk.py please wait for 2 secons...")
+time.sleep(2)
+os.system("clear")
 
 try:
     with open('gokturk.py', 'r') as file:
