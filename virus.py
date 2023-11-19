@@ -1,3 +1,5 @@
+import time
+
 istek = str(input("Please enter the name of the file to be created: "))
 print(f"Creating {istek}.py please wait...")
 time.sleep(2)
