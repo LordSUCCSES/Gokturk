@@ -1,4 +1,4 @@
-#Oluşturucu LordSUCCSES
+#Oluşturucu LordSUCCESS
 #Geliştirici Utq-li
 
 #discord : Utq-li15101#1830 | lordsuccses
