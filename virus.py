@@ -45,7 +45,7 @@ def exe():
     try:
         exe = input("Convert to exe? yes/no")
         if exe == "yes":
-            os.system(f"pyinstaller --onefile -w {istek}.py")
+            os.system(f"pyinstaller -W -f {istek}.py")
         elif exe == "no":
             print("Okey goodbye...")
             exit()
