@@ -1,7 +1,7 @@
 #Oluşturucu LordSUCCESS
 #Geliştirici Utq-li
 
-#discord : Utq-li15101#1830 | lordsuccess
+#discord : utqli15101 | lordsuccess
 
 apt install git
 
