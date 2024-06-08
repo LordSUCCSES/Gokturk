@@ -1,5 +1,5 @@
 # Oluşturucu LordSUCCESS
-# Geliştirici Utq-li
+# Geliştirici UTQ-LI
 
 #discord : utqli15101 | lordsuccess
 
