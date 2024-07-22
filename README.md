@@ -3,9 +3,9 @@
 
 # discord : utqli15101 | lordsuccess
 
+```
 apt install git
 
-```
 git clone https://github.com/LordSUCCSES/Gokturk.git
 
 cd Gokturk
