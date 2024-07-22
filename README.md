@@ -5,7 +5,8 @@
 
 apt install git
 
-bash ```
+```
+
 git clone https://github.com/LordSUCCSES/Gokturk.git
 
 cd Gokturk
