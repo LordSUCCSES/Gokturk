@@ -5,11 +5,12 @@
 
 apt install git
 
-bash '''git clone https://github.com/LordSUCCSES/Gokturk.git
+bash ```
+git clone https://github.com/LordSUCCSES/Gokturk.git
 
 cd Gokturk
 
 python3 download.py
 
 python3 gokturk.py
-'''
+```
